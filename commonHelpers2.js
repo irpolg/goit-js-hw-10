@@ -1,2 +1,2 @@
-import"./assets/styles-f3635d75.js";console.log("snackbar");
+import"./assets/styles-433eb882.js";import{i as l}from"./assets/vendor-77e16229.js";console.log("snackbar");const r=document.querySelector(".form");r.addEventListener("submit",s);function s(o){o.preventDefault(),new Promise((i,a)=>{const{delay:e,state:t}=o.currentTarget.elements;console.log({delay:e.value,state:t.value}),setTimeout(()=>{t.value==="fulfilled"?l.success({title:"OK",titleColor:"black",backgroundColor:"#59A10D",color:"#FFFFFF",message:`✅ Fulfilled promise in ${e.value}ms`,position:"topRight"}):l.error({title:"Error",titleColor:"black",backgroundColor:"#EF4040",color:"#FFFFFF",message:`❌ Rejected promise in ${e.value}ms`,position:"topRight"})},e)})}
 //# sourceMappingURL=commonHelpers2.js.map
