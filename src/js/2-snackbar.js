@@ -26,9 +26,9 @@ function handleSubmit(event) {
     .then(delay => {
       iziToast.success({
         title: 'OK',
-        titleColor: 'black',
+        titleColor: 'white',
         backgroundColor: '#59A10D',
-        color: '#FFFFFF',
+        messageColor: '#FFFFFF',
         message: `✅ Fulfilled promise in ${delay}ms`,
         position: 'topRight',
       });
@@ -36,9 +36,9 @@ function handleSubmit(event) {
     .catch(delay => {
       iziToast.error({
         title: 'Error',
-        titleColor: 'black',
+        titleColor: 'white',
         backgroundColor: '#EF4040',
-        color: '#FFFFFF',
+        messageColor: '#FFFFFF',
         message: `❌ Rejected promise in ${delay}ms`,
         position: 'topRight',
       });
