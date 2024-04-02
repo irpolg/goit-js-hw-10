@@ -4,16 +4,16 @@ import "flatpickr/dist/flatpickr.min.css";   // Додатковий імпор�
 import iziToast from "izitoast";   // Описаний у документації
 import "izitoast/dist/css/iziToast.min.css"; // Додатковий імпорт стилів
 
-const startBtn = document.querySelector("[data-start]");;
-const daysRef = document.querySelector('span[data-days]');
-const hoursRef = document.querySelector('span[data-hours]');
-const minutesRef = document.querySelector('span[data-minutes]');
-const secondsRef = document.querySelector('span[data-seconds]');
+const startButton = document.querySelector("[data-start]");;
+const daysElement = document.querySelector('span[data-days]');
+const hoursElement = document.querySelector('span[data-hours]');
+const minutesElement = document.querySelector('span[data-minutes]');
+const secondsElement = document.querySelector('span[data-seconds]');
 const inputDateTime = document.querySelector('#datetime-picker');
 
-startBtn.disabled = true;
-startBtn.style.backgroundColor = "#CFCFCF";
-startBtn.style.color = "#989898";
+startButton.disabled = true;
+startButton.style.backgroundColor = "#CFCFCF";
+startButton.style.color = "#989898";
 
 
 // Другим аргументом функції flatpickr(selector, options) 
@@ -30,10 +30,10 @@ const options = {
     onClose(selectedDates) {
         if (selectedDates[0].getTime() < new Date().getTime()) {
             //alert("Виберіть майбутню дату!") // library
-            daysRef.textContent === "00";
-            hoursRef.textContent === "00";
-            minutesRef.textContent === "00";
-            secondsRef.textContent === "00";
+            daysElement.textContent === "00";
+            hoursElement.textContent === "00";
+            minutesElement.textContent === "00";
+            secondsElement.textContent === "00";
             iziToast.error({
                 title: 'Error',
                 titleColor: 'black',
@@ -42,28 +42,28 @@ const options = {
                 position: 'topRight',
             });
       } else {
-            startBtn.disabled = false;
-            startBtn.style.backgroundColor = "#4E75FF";
-            startBtn.style.color = "#FFFFFF";
-            startBtn.addEventListener("click", () => {    
-                startBtn.style.backgroundColor = "#CFCFCF";
-                startBtn.style.color = "#989898";
+            startButton.disabled = false;
+            startButton.style.backgroundColor = "#4E75FF";
+            startButton.style.color = "#FFFFFF";
+            startButton.addEventListener("click", () => {    
+                startButton.style.backgroundColor = "#CFCFCF";
+                startButton.style.color = "#989898";
                 const userDate = setInterval(() => {
                     const time = convertMs(selectedDates[0].getTime() - new Date().getTime());
-                    daysRef.textContent = addLeadingZero(time.days);
-                    //console.log(daysRef.textContent);
-                    hoursRef.textContent = addLeadingZero(time.hours);
-                    minutesRef.textContent = addLeadingZero(time.minutes);
-                    secondsRef.textContent = addLeadingZero(time.seconds);
-                    if (daysRef.textContent === "00" &&
-                        hoursRef.textContent === "00" &&
-                        minutesRef.textContent === "00" &&
-                        secondsRef.textContent === "00") {
+                    daysElement.textContent = addLeadingZero(time.days);
+                    //console.log(daysElement.textContent);
+                    hoursElement.textContent = addLeadingZero(time.hours);
+                    minutesElement.textContent = addLeadingZero(time.minutes);
+                    secondsElement.textContent = addLeadingZero(time.seconds);
+                    if (daysElement.textContent === "00" &&
+                        hoursElement.textContent === "00" &&
+                        minutesElement.textContent === "00" &&
+                        secondsElement.textContent === "00") {
                         console.log(userDate);
                         clearInterval(userDate);
                     }
                 }, 1000);
-                startBtn.disabled = true;
+                startButton.disabled = true;
                 inputDateTime.disabled = true;
             })
   }
